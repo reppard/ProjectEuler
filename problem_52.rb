@@ -1,13 +1,13 @@
 time = Time.new
 
-def sort_it(n)  
+def sort_it(n)
   n.each_char.map{|i| i.to_i}.sort
 end
 
-def check_it(tests)  
+def check_it(tests)
   a,b,c,d,e = sort_it(tests[0]),sort_it(tests[1]),
-  sort_it(tests[2]),sort_it(tests[3]),sort_it(tests[4])  
-  return true if (a == b) && (a == c) && 
+  sort_it(tests[2]),sort_it(tests[3]),sort_it(tests[4])
+  return true if (a == b) && (a == c) &&
     (a == d) && (a == e)
 end
 
