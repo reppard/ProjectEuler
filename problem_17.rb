@@ -53,17 +53,7 @@ class Fixnum
     huns = args / 100
     tens = args % 100
     mod = tens == 0 ? "" : "and"
-    case
-    when huns == 1 then ones(huns) + "hundred" + mod  + tens(tens)
-    when huns == 2 then ones(huns) + "hundred" + mod  + tens(tens)
-    when huns == 3 then ones(huns) + "hundred" + mod  + tens(tens)
-    when huns == 4 then ones(huns) + "hundred" + mod  + tens(tens)
-    when huns == 5 then ones(huns) + "hundred" + mod  + tens(tens)
-    when huns == 6 then ones(huns) + "hundred" + mod  + tens(tens)
-    when huns == 7 then ones(huns) + "hundred" + mod  + tens(tens)
-    when huns == 8 then ones(huns) + "hundred" + mod  + tens(tens)
-    when huns == 9 then ones(huns) + "hundred" + mod  + tens(tens)
-    end
+    ones(huns) + "hundred" + mod + tens(tens)
   end
 
   def thousands
