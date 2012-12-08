@@ -13,11 +13,11 @@ time = Time.now
 
 class Fixnum
   def to_word
-    case
-    when self < 10 then ones(self)
-    when self < 100 && self > 9 then tens(self)
-    when self >= 100 && self < 1000 then hundreds(self)
-    when self >=1000 then thousands
+    case self
+    when 1..9 then ones(self)
+    when 10..99 then tens(self)
+    when 100..999 then hundreds(self)
+    when 1000 then thousands
     end
   end
 
@@ -71,18 +71,8 @@ class Fixnum
   end
 
   def tenz(args)
-    case args
-    when 10 then "ten"
-    when 11 then "eleven"
-    when 12 then "twelve"
-    when 13 then "thirteen"
-    when 14 then "fourteen"
-    when 15 then "fifteen"
-    when 16 then "sixteen"
-    when 17 then "seventeen"
-    when 18 then "eighteen"
-    when 19 then "nineteen"
-    end
+    ["ten", "eleven", "twelve", "thirteen", "fourteen",
+    "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"][args - 10]
   end
 
 end
