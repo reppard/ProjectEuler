@@ -35,16 +35,8 @@ class Fixnum
         tenz(args)
       else
       last = ones(ones)
-       case
-       when tenth == 2 then "twenty" + last
-       when tenth == 3 then "thirty" + last
-       when tenth == 4 then "forty" + last
-       when tenth == 5 then "fifty" + last
-       when tenth == 6 then "sixty" + last
-       when tenth == 7 then "seventy" + last
-       when tenth == 8 then "eighty" + last
-       when tenth == 9 then "ninety" + last
-       end
+      ["twenty","thirty","forty","fifty",
+      "sixty","seventy","eighty","ninety"][tenth - 2] + last
       end
     end
   end
