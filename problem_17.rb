@@ -22,18 +22,7 @@ class Fixnum
   end
 
   def ones(args)
-    case args
-    when 0 then ""
-    when 1 then "one"
-    when 2 then "two"
-    when 3 then "three"
-    when 4 then "four"
-    when 5 then "five"
-    when 6 then "six"
-    when 7 then "seven"
-    when 8 then "eight"
-    when 9 then "nine"
-    end
+    ["","one","two","three","four","five","six","seven","eight","nine"][args]
   end
 
   def tens(args)
