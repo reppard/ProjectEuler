@@ -12,6 +12,11 @@
 time = Time.now
 
 class Fixnum
+
+  DICTIONARY = ["","one","two","three","four","five","six","seven","eight","nine",
+                "ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen",
+                "seventeen", "eighteen", "nineteen","twenty","thirty","forty",
+                "fifty","sixty","seventy","eighty","ninety"]
   def to_word
     case self
     when 1..9 then ones(self)
@@ -22,12 +27,11 @@ class Fixnum
   end
 
   def ones(args)
-    ["","one","two","three","four","five","six","seven","eight","nine"][args]
+    DICTIONARY[args]
   end
 
   def teens(args)
-    ["ten", "eleven", "twelve", "thirteen", "fourteen",
-    "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"][args - 10]
+    DICTIONARY[args]
   end
 
   def tens(args)
@@ -40,8 +44,7 @@ class Fixnum
         teens(args)
       else
       last = ones(ones)
-      ["twenty","thirty","forty","fifty",
-      "sixty","seventy","eighty","ninety"][tenth - 2] + last
+      DICTIONARY[tenth + 18] + last
       end
     end
   end
