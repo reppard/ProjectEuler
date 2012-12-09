@@ -2,8 +2,4 @@
 
 ##Find the sum of all the multiples of 3 or 5 below 1000.
 
-nums = []
-(1..999).each { |items|
-	nums << items if (items % 3) == 0 || (items % 5) == 0 }
-
-puts nums.inject(&:+)
+puts (1..999).select{ |i| i if (i % 3) == 0 || (i % 5) == 0 }.inject(&:+)
