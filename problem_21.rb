@@ -21,4 +21,4 @@ def has_pair?(n)
   true if n == b
 end
 
-puts (1..10000).select{|i| i && puts i if has_pair?(i)}.inject(:+)
+puts (1..10000).select{|i| i if has_pair?(i)}.inject(:+)
