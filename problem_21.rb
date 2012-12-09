@@ -9,14 +9,16 @@
 
 # Evaluate the sum of all the amicable numbers under 10000.
 
-nums = (1..10000).to_a
-
-def sum_of_propers(arg)
-  if !arg.nil?
-    (1..arg).select{|i| i if arg % i == 0 && i != arg}.inject(:+)
+def d(n)
+  if !n.nil?
+    (1..n).select{|i| i if n % i == 0 && i != n}.inject(&:+)
   end
 end
 
-x = nums.select{ |i| i if i == sum_of_propers(sum_of_propers(i)) && i < 10000 }
-puts x
-puts x.inject(:+)
+def has_pair?(n)
+  a = d(n)
+  b = d(a)
+  true if n == b
+end
+
+puts (1..10000).select{|i| i && puts i if has_pair?(i)}.inject(:+)
