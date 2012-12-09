@@ -2,16 +2,8 @@
 
 ##Find the sum of all the multiples of 3 or 5 below 1000.
 
-def sum(n)
-	sum = 0
-	n.each { |i|
-		sum += i }
-	sum
-end
-
-
-nums = Array.new
+nums = []
 (1..999).each { |items|
 	nums << items if (items % 3) == 0 || (items % 5) == 0 }
 
-puts sum(nums)
+puts nums.inject(&:+)

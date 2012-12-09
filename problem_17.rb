@@ -25,6 +25,11 @@ class Fixnum
     ["","one","two","three","four","five","six","seven","eight","nine"][args]
   end
 
+  def tenz(args)
+    ["ten", "eleven", "twelve", "thirteen", "fourteen",
+    "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"][args - 10]
+  end
+
   def tens(args)
     if args < 10
       ones(args)
@@ -52,11 +57,7 @@ class Fixnum
     "onethousand"
   end
 
-  def tenz(args)
-    ["ten", "eleven", "twelve", "thirteen", "fourteen",
-    "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"][args - 10]
-  end
-
 end
+(1..ARGV[0].to_i).to_a.each{|i| puts i.to_word}
 puts (1..ARGV[0].to_i).to_a.collect{ |i| i.to_word.length}.inject(&:+)
 puts (Time.now - time).to_s + " seconds"
