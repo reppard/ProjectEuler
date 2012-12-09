@@ -25,7 +25,7 @@ class Fixnum
     ["","one","two","three","four","five","six","seven","eight","nine"][args]
   end
 
-  def tenz(args)
+  def teens(args)
     ["ten", "eleven", "twelve", "thirteen", "fourteen",
     "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"][args - 10]
   end
@@ -37,7 +37,7 @@ class Fixnum
       tenth = args / 10
       ones = args % 10
       if tenth == 1
-        tenz(args)
+        teens(args)
       else
       last = ones(ones)
       ["twenty","thirty","forty","fifty",
