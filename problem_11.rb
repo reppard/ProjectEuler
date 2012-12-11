@@ -51,6 +51,17 @@ class ProblemEleven
     prods.max
   end
 
+  def right_diag grid
+    max, prod = 0,0
+    (0..16).each{ |x|
+      (0..16).each{ |y|
+        prod = [grid[y][x],grid[y+1][x+1],
+                grid[y+2][x+2],grid[y+3][x+3]].inject(&:*)
+        max = prod if prod > max }
+    }
+    max
+  end
+
   def left_diag grid
     max, prod = 0,0
     (0..16).each{ |x|
@@ -70,6 +81,7 @@ grid = problem.setup_grid
 
 prods << problem.find_max_prod(grid)
 prods << problem.left_diag(grid)
+prods << problem.right_diag(grid)
 
 puts "Maxium product: #{prods.max}"
 puts "Elapsed time: #{Time.now - time} seconds."
