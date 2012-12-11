@@ -40,18 +40,23 @@ class ProblemEleven
         row.shift
       end
     }
-    puts "#{prods}"
     prods.max
   end
 
-  def get_first_row grid
-    collect = []
-    (0..19).each{ |x|
-      collect << grid.collect{ |c| c[x] }
+  def left_diag grid
+    max, prod = 0,0
+    (0..16).each{ |x|
+      (0..16).each{ |y|
+        prod = [grid[y][x+3],grid[y+1][x+2],grid[y+2][x+1],grid[y+3][x]].inject(&:*)
+        max = prod if prod > max }
     }
-  collect
+    max
   end
+
 
 end
 
-grid = ProblemEleven.new.setup_grid
+problem = ProblemEleven.new
+grid = problem.setup_grid
+puts problem.find_max_prod(grid)
+puts problem.left_diag(grid)
