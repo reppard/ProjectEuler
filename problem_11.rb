@@ -1,3 +1,11 @@
+#In the 2020 grid below, four numbers along a diagonal line have been marked in red.
+#The product of these numbers is 26  63  78  14 = 1788696.
+
+#What is the greatest product of four adjacent numbers in any direction
+#(up, down, left, right, or diagonally) in the 2020 grid?
+
+time = Time.now
+
 class ProblemEleven
   def initialize
     @nums = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
@@ -47,16 +55,22 @@ class ProblemEleven
     max, prod = 0,0
     (0..16).each{ |x|
       (0..16).each{ |y|
-        prod = [grid[y][x+3],grid[y+1][x+2],grid[y+2][x+1],grid[y+3][x]].inject(&:*)
+        prod = [grid[y][x+3],grid[y+1][x+2],
+                grid[y+2][x+1],grid[y+3][x]].inject(&:*)
         max = prod if prod > max }
     }
     max
   end
 
-
 end
 
+prods = []
 problem = ProblemEleven.new
 grid = problem.setup_grid
-puts problem.find_max_prod(grid)
-puts problem.left_diag(grid)
+
+prods << problem.find_max_prod(grid)
+prods << problem.left_diag(grid)
+
+puts "Maxium product: #{prods.max}"
+puts "Elapsed time: #{Time.now - time} seconds."
+
