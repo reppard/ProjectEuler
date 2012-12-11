@@ -1,8 +1,8 @@
-#In the 2020 grid below, four numbers along a diagonal line have been marked in red.
+#In the 20x20 grid below, four numbers along a diagonal line have been marked in red.
 #The product of these numbers is 26  63  78  14 = 1788696.
 
 #What is the greatest product of four adjacent numbers in any direction
-#(up, down, left, right, or diagonally) in the 2020 grid?
+#(up, down, left, right, or diagonally) in the 20x20 grid?
 
 time = Time.now
 
