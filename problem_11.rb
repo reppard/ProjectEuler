@@ -36,7 +36,7 @@ class ProblemEleven
     @grid
   end
 
-  def find_max_prod grid
+  def find_rows_and_cols_max_prod grid
     prods = []
     (0..19).each{ |x|
       column = grid.collect{|c| c[x] }
@@ -51,26 +51,18 @@ class ProblemEleven
     prods.max
   end
 
-  def right_diag grid
-    max, prod = 0,0
+  def find_diag_max_prod grid
+    prods = []
     (0..16).each{ |x|
       (0..16).each{ |y|
-        prod = [grid[y][x],grid[y+1][x+1],
-                grid[y+2][x+2],grid[y+3][x+3]].inject(&:*)
-        max = prod if prod > max }
-    }
-    max
-  end
+        prods << [grid[y][x+3],grid[y+1][x+2], #left diags
+                  grid[y+2][x+1],grid[y+3][x]].inject(&:*)
 
-  def left_diag grid
-    max, prod = 0,0
-    (0..16).each{ |x|
-      (0..16).each{ |y|
-        prod = [grid[y][x+3],grid[y+1][x+2],
-                grid[y+2][x+1],grid[y+3][x]].inject(&:*)
-        max = prod if prod > max }
+        prods << [grid[y][x],grid[y+1][x+1],  #right diags
+                  grid[y+2][x+2],grid[y+3][x+3]].inject(&:*)
+      }
     }
-    max
+    prods.max
   end
 
 end
@@ -79,9 +71,8 @@ prods = []
 problem = ProblemEleven.new
 grid = problem.setup_grid
 
-prods << problem.find_max_prod(grid)
-prods << problem.left_diag(grid)
-prods << problem.right_diag(grid)
+prods << problem.find_rows_and_cols_max_prod(grid)
+prods << problem.find_diag_max_prod(grid)
 
 puts "Maxium product: #{prods.max}"
 puts "Elapsed time: #{Time.now - time} seconds."
