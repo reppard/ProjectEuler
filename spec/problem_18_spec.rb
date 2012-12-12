@@ -15,7 +15,7 @@ describe TriangleTravel do
 
   it "should return the correct max total from top to bottom" do
     triangle = TriangleTravel[@string]
-    TriangleTravel.find_max(triangle).should eq(1074)
+    TriangleTravel.find_max(triangle).should eq(23)
   end
 
 end
