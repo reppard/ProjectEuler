@@ -27,12 +27,13 @@ class TriangleTravel
       @triangle.pop
       @triangle.push(new_base)
     end
-        @triangle.flatten.max
-    end
-
+    @triangle.flatten.max
   end
 
+end
+
 time = Time.now
+
 # triangle = File.open('triangle.txt').read  #Uncomment and comment out
 # the variable below to solve Problem 67.
 
