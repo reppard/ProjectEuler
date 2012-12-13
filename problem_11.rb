@@ -17,10 +17,9 @@ class ProblemEleven
 
   def find_rows_and_cols_max_prod grid
     prods = []
-    range = grid.length - 1
-    (0..range).each{ |x|
+    (0..19).each{ |x|
       column = grid.collect{|c| c[x] }
-      row = grid[x][0..range]
+      row = grid[x][0..19]
       while row.length >= 4
         prods << row.first(4).inject(&:*)
         prods << column.first(4).inject(&:*)
@@ -33,9 +32,8 @@ class ProblemEleven
 
   def find_diag_max_prod grid
     prods = []
-    range = grid.length - 4
-    (0..range).each{ |x|
-      (0..range).each{ |y|
+    (0..16).each{ |x|
+      (0..16).each{ |y|
         prods << [grid[y][x+3],grid[y+1][x+2], #left diags
                   grid[y+2][x+1],grid[y+3][x]].inject(&:*)
 
