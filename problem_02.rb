@@ -8,15 +8,13 @@
 def sum(array)
 	seq = array
 	seq.pop
-    sum = 0
-    seq.each { |i|
-        sum += i if i.even? }
-    sum
+  seq.select{ |i| i if i.even? }.inject(&:+)
 end
 
 array = [1,2]
-	while array.last <= 4000000
-		sums = array.last(2)
-		array << sums[0] + sums[1]
-    end
-puts sum(array)
+
+while array.last <= 4000000
+	array << array.last(2).inject(&:+)
+end
+
+puts sum(array)  #4613732
