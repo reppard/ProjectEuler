@@ -2,11 +2,12 @@
 #What is the largest prime factor of the number 600851475143
 array = []
 n = 600851475143
-(1..Math.sqrt(n)).each{ |i|
+(1..Math.sqrt(n)).each do |i|
     mod = n % i
     if mod == 0
       n /= i
       array << i
-    end }
-puts array.last
+    end
+end
 
+puts array.last
