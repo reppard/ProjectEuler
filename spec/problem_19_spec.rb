@@ -20,5 +20,8 @@ describe Years do
 end
 
 describe Months do
-
+  it "should return correct amount of days in month based on year"do
+    @months = Years.new(1900)
+    @months[2].should eq(28) if !@months.year.leap_year?
+  end
 end
