@@ -5,8 +5,9 @@
 
 num = 100
 high = 0
+
 while num < 1000
-(100..999).each { |i|
+  (100..999).each { |i|
     string = (i * num).to_s
     if string == string.reverse
 	  high = string.to_i if high < string.to_i
