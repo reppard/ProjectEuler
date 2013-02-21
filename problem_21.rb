@@ -18,7 +18,7 @@ end
 def has_pair?(n)
   a = d(n)
   b = d(a)
-  true if n == b && a != b
+  n == b && a != b
 end
 
 puts (1..10000).select{|i| i if i.even? && has_pair?(i)}.inject(:+)
