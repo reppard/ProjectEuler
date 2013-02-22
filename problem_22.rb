@@ -10,3 +10,20 @@
 #name in the list. So, COLIN would obtain a score of 938  53 = 49714.
 
 #What is the total of all the name scores in the file?
+
+class ProblemTwentyTwo
+
+  ALPHABET = ("A".."Z").to_a
+
+  def self.parse_file names
+    File.open(names, "r").read.gsub(/\"/,'').split(",")
+  end
+end
+
+array = ProblemTwentyTwo.parse_file("names.txt")
+array.sort_by! {|name| name}
+
+puts array.collect{ |name|
+  ( array.index(name) + 1 ) * name.each_char.collect{ |n|
+    ProblemTwentyTwo::ALPHABET.index(n) + 1}.inject(:+)
+  }.inject(:+)
