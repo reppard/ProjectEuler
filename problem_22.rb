@@ -11,6 +11,27 @@
 
 #What is the total of all the name scores in the file?
 
+class Letter
+  ALPHABET = ("a".."z").to_a
+
+  def self.score(letter)
+    index_plus_one(letter)
+  end
+
+  def self.index_plus_one(letter)
+    ALPHABET.index(letter.downcase) + 1
+  end
+end
+
+class Name
+  def self.score(name, index)
+    letter_scores = name.each_char.collect{ |letter| Letter.score(letter) }.inject(:+)
+    (index + 1) * letter_scores
+  end
+end
+
+
+
 class ProblemTwentyTwo
 
   ALPHABET = ("A".."Z").to_a
@@ -23,7 +44,4 @@ end
 array = ProblemTwentyTwo.parse_file("names.txt")
 array.sort_by! {|name| name}
 
-puts array.collect{ |name|
-  ( array.index(name) + 1 ) * name.each_char.collect{ |n|
-    ProblemTwentyTwo::ALPHABET.index(n) + 1}.inject(:+)
-  }.inject(:+)
+puts array.collect{ |name| Name.score(name, array.index(name))}.inject(:+)
