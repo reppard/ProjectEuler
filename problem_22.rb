@@ -31,12 +31,22 @@ class Name
 end
 
 class ProblemTwentyTwo
-  def self.parse_file names
-    File.open(names, "r").read.gsub(/\"/,'').split(",")
+  attr_reader :names
+
+  def initialize file
+    @names = sorted_names(file)
+  end
+
+  def sorted_names file
+    File.open(file, "r").read.gsub(/\"/,'').split(",").sort
+  end
+
+  def solve
+    @names.collect{ |name| Name.score(name, @names.index(name)) }.inject(:+)
   end
 end
 
-array = ProblemTwentyTwo.parse_file("names.txt")
-array.sort_by! {|name| name}
-
-puts array.collect{ |name| Name.score(name, array.index(name))}.inject(:+)
+time = Time.now
+problem = ProblemTwentyTwo.new("names.txt")
+puts "Answer:  #{problem.solve}"
+puts "Elapsed: #{Time.now - time} seconds"

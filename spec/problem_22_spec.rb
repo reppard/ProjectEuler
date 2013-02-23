@@ -25,15 +25,19 @@ describe Name do
   end
 end
 
-
-
 describe ProblemTwentyTwo do
-  describe "#parse_file" do
-    it "should open a file of names and create an array of names" do
-      names = ProblemTwentyTwo.parse_file("names.txt")
+  before(:each) do
+    @problem = ProblemTwentyTwo.new("names.txt")
+  end
 
-      names.should be_kind_of Array
-      names[0].should be_kind_of String
+  it "should have a names array" do
+    @problem.names.should be_kind_of Array
+    @problem.names[937].should eql("COLIN")
+  end
+
+  describe "solve" do
+    it "should return the correct score" do
+      @problem.solve.should eql(871198282)
     end
   end
 end
