@@ -30,12 +30,7 @@ class Name
   end
 end
 
-
-
 class ProblemTwentyTwo
-
-  ALPHABET = ("A".."Z").to_a
-
   def self.parse_file names
     File.open(names, "r").read.gsub(/\"/,'').split(",")
   end
