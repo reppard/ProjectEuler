@@ -9,13 +9,15 @@ then
   touch $FILE
   touch spec/problem_$1_spec.rb
 fi
-
 touch tmp
 TMP=tmp
 curl -s http://projecteuler.net/problem\=$1 > tmp
-
-cat $TMP | grep -e "\<h3\>" | sed 's/.*\<h3\>/\#/' | sed 's/\<\/h3\>.*//' >> $FILE
-cat $TMP | grep -e "\<h2\>" | sed 's/\<h2\>/\#/' | sed 's/\<\/h2\>.*//' >> $FILE
+ex -sc $'%s/\r$//e|x' $TMP
+cat $TMP | grep -e "\<h3\>" | sed 's/.*\<h3\>/\#/' | sed 's/\<\/h3\>.*//' | sed 's/$//g' > $FILE
+cat $TMP | grep -e "\<h2\>" | sed 's/\<h2\>/\#/' | sed 's/\<\/h2\>.*//' | sed 's/$//g' >> $FILE
+cat $TMP | grep -i -e "\<p\>" | sed 's/<\/.>//' | sed -E -e 's/<\/?[a-z]+>//g' | sed 's/^/# /' | sed 's/<\!-- //g' | sed 's/-->//g' | sed 's/$//g' >> $FILE
 rm $TMP
 
 echo "require './problem_$1'" > spec/problem_$1_spec.rb
+
+vim -O $FILE spec/problem_$1_spec.rb
