@@ -1,64 +1,21 @@
-class ProblemNineteen
+require 'date'
 
-end
+# You are given the following information, but you may prefer to do some research for yourself.
 
+#   1 Jan 1900 was a Monday.
+#   Thirty days has September,
+#   April, June and November.
+#   All the rest have thirty-one,
+#   Saving February alone,
+#   Which has twenty-eight, rain or shine.
+#   And on leap years, twenty-nine.
+#   A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.
+#   How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
 
-class Years
-  attr_accessor :range, :year
+time = Time.now
 
-  def initialize range
-    if range.class == Range
-      @range = range.to_a
-    else
-      @range = range
-    end
-  end
+range = Date.new(1901,1,1).upto(Date.new(2000,12,31))
+count = range.select{ |day| day.mday == 1 && day.wday == 0 }.size
 
-  def all
-    @range
-  end
-
-  def leap_year?(year)
-    true if year % 4 == 0 && year % 100 != 0
-  end
-
-  class << self
-    def leap_year?
-      return self.year
-    end
-  end
-end
-
-
-class Months
-
-  MONTH_HASH = {
-  1     =>  31,
-  2     =>  28,
-  3     =>  31,
-  4     =>  30,
-  5     =>  31,
-  6     =>  30,
-  7     =>  31,
-  8     =>  31,
-  9     =>  30,
-  10    =>  31,
-  11    =>  30,
-  12    =>  31
-  }
-
-  attr_accessor :year, :current
-
-  def initialize year
-    @year = Years.new(year)
-  end
-
-  def [] number
-    @current = MONTH_HASH[number]
-  end
-
-  def number_of_days
-    @current
-  end
-
-end
+puts "Answer: #{count}"
+puts "Time: #{Time.now - time}"
