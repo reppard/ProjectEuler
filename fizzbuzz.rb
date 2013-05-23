@@ -1,9 +1,11 @@
-(1..100).each{ |i|
+#FizzBuzz
+
+(1..100).each do |i|
   test = [i%3 == 0 ? true : false, i%5 == 0 ? true : false]
   case test
-  when [true, false] then puts "Fizz"
-  when [false, true] then puts "Buzz"
-  when [true, true] then puts "FizzBuzz"
-  else puts i.to_s
+  when [true, false] then printf "Fizz "
+  when [false, true] then printf "Buzz "
+  when [true, true] then printf "FizzBuzz "
+  else printf "#{i.to_s} "
   end
-}
+end
