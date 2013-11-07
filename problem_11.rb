@@ -6,20 +6,26 @@
 
 time = Time.now
 
+class Integer
+  def sqrt
+    (1..self).select{|n|n*n == self}.first
+  end
+end
+
 class ProblemEleven
 
   def setup_grid string
-    @nums = string.gsub(/\n/," ").split(" ").map{|i| i.to_i}
-    @grid = []
-    @grid << @nums.shift(20) while @nums.length != 0
-    @grid
+    nums = string.gsub(/\n/," ").split(" ").map{|i| i.to_i}
+    side_size = nums.size.sqrt
+    nums.each_slice(side_size).to_a
   end
 
   def find_rows_and_cols_max_prod grid
     prods = []
-    (0..19).each{ |x|
+    max = grid.size - 1
+    (0..max).each{ |x|
       column = grid.collect{|c| c[x] }
-      row = grid[x][0..19]
+      row = grid[x][0..max]
       while row.length >= 4
         prods << row.first(4).inject(&:*)
         prods << column.first(4).inject(&:*)
@@ -32,8 +38,9 @@ class ProblemEleven
 
   def find_diag_max_prod grid
     prods = []
-    (0..16).each{ |x|
-      (0..16).each{ |y|
+    max = grid.size - 4
+    (0..max).each{ |x|
+      (0..max).each{ |y|
         prods << [grid[y][x+3],grid[y+1][x+2], #left diags
                   grid[y+2][x+1],grid[y+3][x]].inject(&:*)
 
