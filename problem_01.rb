@@ -3,3 +3,32 @@
 ##Find the sum of all the multiples of 3 or 5 below 1000.
 
 puts (1..999).select{ |i| i if (i % 3) == 0 || (i % 5) == 0 }.inject(&:+)
+class ProblemOne
+  attr_accessor :max
+
+  def initialize max
+    @max = max
+  end
+
+  def multiple_of_three? num
+    (num % 3) == 0
+  end
+
+  def multiple_of_five? num
+    (num % 5) == 0
+  end
+
+  def collect_multiples
+    (1..@max).select do |i|
+      multiple_of_three?(i) || multiple_of_five?(i)
+    end
+  end
+
+  def sum
+    collect_multiples.inject(&:+)
+  end
+end
+
+problem = ProblemOne.new 999
+
+puts "Answer: #{problem.sum}"
