@@ -10,6 +10,7 @@
 #name in the list. So, COLIN would obtain a score of 938 * 53 = 49714.
 
 #What is the total of all the name scores in the file?
+time = Time.now
 
 class Letter
   ALPHABET = ("a".."z").to_a
@@ -46,7 +47,8 @@ class ProblemTwentyTwo
   end
 end
 
-time = Time.now
 problem = ProblemTwentyTwo.new("names.txt")
+puts "Problem 22"
 puts "Answer:  #{problem.solve}"
-puts "Elapsed: #{Time.now - time} seconds"
+puts "Time: #{Time.now - time}"
+puts "--------------------------"

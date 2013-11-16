@@ -81,6 +81,8 @@ grid = problem.setup_grid(string)
 prods << problem.find_rows_and_cols_max_prod(grid)
 prods << problem.find_diag_max_prod(grid)
 
-puts "Maxium product: #{prods.max}"
-puts "Elapsed time: #{Time.now - time} seconds."
+puts "Problem 11"
+puts "Answer: #{prods.max}"
+puts "Time: #{Time.now - time}"
+puts "--------------------------"
 

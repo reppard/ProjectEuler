@@ -1,6 +1,7 @@
 ##If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 
 ##Find the sum of all the multiples of 3 or 5 below 1000.
+time = Time.now
 
 class ProblemOne
   attr_accessor :max
@@ -30,4 +31,7 @@ end
 
 problem = ProblemOne.new 999
 
+puts "Problem 01"
 puts "Answer: #{problem.sum}"
+puts "Time: #{Time.now - time}"
+puts "--------------------------"

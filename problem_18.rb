@@ -8,6 +8,7 @@
 # That is, 3 + 7 + 4 + 9 = 23.
 
 # Find the maximum total from top to bottom of the triangle below:
+time = Time.now
 
 class TriangleTravel
 
@@ -31,8 +32,6 @@ class TriangleTravel
 
 end
 
-time = Time.now
-
 triangle = File.open('triangle.txt').read  #Uncomment and comment out
 # the variable below to solve Problem 67.
 
@@ -53,5 +52,8 @@ triangle = File.open('triangle.txt').read  #Uncomment and comment out
 #             04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"
 
 tri = TriangleTravel[triangle]
+
+puts "Problem 18"
 puts "Answer: #{TriangleTravel.find_max(tri)}"
-puts "Elapsed time: #{Time.now - time} seconds."
+puts "Time: #{Time.now - time}"
+puts "--------------------------"

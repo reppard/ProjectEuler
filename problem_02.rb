@@ -5,6 +5,7 @@
 ##By considering the terms in the Fibonacci sequence whose
 #values do not exceed four million, find the sum of the
 #even-valued terms.
+time = Time.now
 
 def get_seq num
   collection = [1,2]
@@ -18,4 +19,7 @@ def add_even collection
   collection.select{ |i| i.even? }.inject(&:+)
 end
 
+puts "Problem 02"
 puts "Answer: #{add_even(get_seq(4000000))}"
+puts "Time: #{Time.now - time}"
+puts "--------------------------"
