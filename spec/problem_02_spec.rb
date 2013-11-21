@@ -4,6 +4,10 @@ describe "#get_seq" do
   it "should get the fibonacci sequence upto n value" do
     get_seq(8).should eq([1,2,3,5,8])
   end
+
+  it "should not return last sequence value larger than argument given" do
+    get_seq(10).should eq([1,2,3,5,8])
+  end
 end
 
 describe "#add_even" do

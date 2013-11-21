@@ -12,7 +12,7 @@ def get_seq num
   while collection.last < num
     collection << collection.last(2).inject(&:+)
   end
-  collection
+  collection.last <= num ? collection : collection.pop && collection
 end
 
 def add_even collection
