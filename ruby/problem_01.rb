@@ -4,8 +4,6 @@
 time = Time.now
 
 class ProblemOne
-  attr_accessor :max
-
   def initialize max
     @max = max
   end
