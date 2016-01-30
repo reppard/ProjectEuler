@@ -47,7 +47,7 @@ class ProblemTwentyTwo
   end
 end
 
-problem = ProblemTwentyTwo.new("names.txt")
+problem = ProblemTwentyTwo.new("fixtures/names.txt")
 puts "Problem 22"
 puts "Answer:  #{problem.solve}"
 puts "Time: #{Time.now - time}"

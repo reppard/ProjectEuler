@@ -32,7 +32,7 @@ class TriangleTravel
 
 end
 
-triangle = File.open('triangle.txt').read  #Uncomment and comment out
+triangle = File.open('fixtures/triangle.txt').read  #Uncomment and comment out
 # the variable below to solve Problem 67.
 
 # triangle = "75
