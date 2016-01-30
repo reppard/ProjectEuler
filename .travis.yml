@@ -1,0 +1,4 @@
+before_install: cd ruby
+install:
+  - bundle install --path vendor/bundle
+script: bundle exec rspec
