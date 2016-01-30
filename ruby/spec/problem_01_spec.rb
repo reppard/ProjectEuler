@@ -35,3 +35,11 @@ describe ProblemOne do
     end
   end
 end
+
+time = Time.now
+problem = ProblemOne.new 999
+
+puts "Problem 01"
+puts "Answer: #{problem.sum}"
+puts "Time: #{Time.now - time}"
+puts "--------------------------"
